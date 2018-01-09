@@ -98,6 +98,11 @@ describe('Sentiance - API', () => {
 				expect(res.body).to.have.property('count').that.eql(94);
 				expect(res.body).to.have.property('aggregations').that.eql({
 					transportation: {
+						all: {
+							numberOfEvents: 53,
+							totalDistance: 9710776,
+							totalDuration: 38758787,
+						},
 						biking: {
 							totalDistance: 2615,
 							totalDuration: 4299000,
