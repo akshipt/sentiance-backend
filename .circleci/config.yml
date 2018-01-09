@@ -35,6 +35,6 @@ jobs:
             sudo python get-pip.py
             sudo pip install awscli
       - run:
-          name: "build"
+          name: "Docker build"
           command: |
             make build
