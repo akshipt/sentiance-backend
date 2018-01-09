@@ -1,0 +1,47 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/iqo2-api
+    docker:
+      - image: circleci/node:8.9.1
+      - image: mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: toor
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
+      - run:
+          name: "Install mySql client"
+          command: |
+            sudo apt-get update
+            sudo apt-get install mysql-client
+      - run:
+          name: "Wait for DB"
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
+          name: "Setup DB"
+          command: make init_mysql
+      - run:
+          name: "npm install"
+          command: npm i
+      - run:
+          name: "npm test"
+          command: npm t
+      - run:
+          name: Install aws-cli
+          command: |
+            sudo apt-get install python-dev
+            curl -O https://bootstrap.pypa.io/get-pip.py
+            sudo python get-pip.py
+            sudo pip install awscli
+      - run:
+          name: "deploy"
+          command: |
+            aws configure set default.region eu-west-1
+            chmod 600 keys/iqo2-ssh.pem
+            make deploy_ec2
