@@ -31,3 +31,8 @@ jobs:
             curl -O https://bootstrap.pypa.io/get-pip.py
             sudo python get-pip.py
             sudo pip install awscli
+      - run:
+          name: "deploy"
+          command: |
+            aws configure set default.region eu-west-1
+            make deploy_ec2
