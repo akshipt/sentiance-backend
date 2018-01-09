@@ -23,6 +23,6 @@ COPY assets/ assets/
 COPY test/ test/
 COPY *.js ./
 
-EXPOSE 3000
+EXPOSE 3001
 CMD ["node", "server.js" ]
 ENTRYPOINT ["/app/entrypoint.sh"]
