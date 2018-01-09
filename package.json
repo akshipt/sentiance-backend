@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node-dev ./lib/server | bunyan",
-    "prepare": "node ./scripts/prepare",
+    "ingest": "node ./scripts/ingest",
     "test": "DISABLE_LOG=1 mocha test/index.js --exit --timeout 5000 $MOCHA_OPTIONS",
     "lint": "eslint lib/** test/**"
   },

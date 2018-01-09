@@ -17,12 +17,19 @@ $ npm i
 
 ### Running tests
 
-```
+```sh
 $ npm t
 ```
 
 ### Running server
 
-```
+```sh
 $ npm start
+```
+
+### Ingest test data
+
+```sh
+$ npm run ingest
+
 ```
