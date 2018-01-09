@@ -21,6 +21,6 @@ RUN chmod +x /app/entrypoint.sh
 COPY lib/ lib/
 COPY test/ test/
 
-EXPOSE 3001
+EXPOSE 3000
 CMD ["node", "server.js" ]
 ENTRYPOINT ["/app/entrypoint.sh"]

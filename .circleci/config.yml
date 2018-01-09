@@ -35,7 +35,6 @@ jobs:
             sudo python get-pip.py
             sudo pip install awscli
       - run:
-          name: "deploy"
+          name: "build"
           command: |
-            aws configure set default.region eu-west-1
-            make deploy_ec2
+            make build
