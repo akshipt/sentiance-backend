@@ -19,7 +19,6 @@ COPY docker/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 COPY lib/ lib/
-COPY assets/ assets/
 COPY test/ test/
 COPY *.js ./
 
